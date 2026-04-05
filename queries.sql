@@ -144,11 +144,13 @@ SELECT
     ) AS seller
 FROM first_purchases AS fp
 INNER JOIN sales AS s
-    ON fp.customer_id = s.customer_id
-    AND fp.first_date = s.sale_date
+    ON
+        fp.customer_id = s.customer_id
+        AND fp.first_date = s.sale_date
 INNER JOIN products AS p
-    ON s.product_id = p.product_id
-    AND p.price = 0
+    ON
+        s.product_id = p.product_id
+        AND p.price = 0
 INNER JOIN customers AS c
     ON s.customer_id = c.customer_id
 INNER JOIN employees AS e
